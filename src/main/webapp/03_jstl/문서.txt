@@ -1,0 +1,88 @@
+redirect
+url
+import include단점 보완
+
+● include 액션 문제점 
+
+    같은 프로젝트 내에서만 include 액션을 쓸 수 있다 ( 로컬url만 가능)
+
+    다른 프로젝트나 외부 사이트는 사용할 수 없다 
+
+● JSTL의 import 기능은 
+    같은 프로젝트내에서는 물론이고,
+    다른 프로젝트나 외부 사이트도 import 할수 있다 
+    다음,네이버
+
+============================================================
+● URL  처리태그
+
+   1. redirect 태그...response.sendRedirect("url")와 같은 기능
+   2. url 태그.........URL을 생성해서 변수에 저장할때 사용(변수에 저장)
+   3. import 태그 ....<jsp:include>태그와 비슷한 기능을 제공 
+
+============================================================
+
+1. redirect 태그 형식
+
+<c:redirect url="">
+    <c:param name="id" value="park"/>
+</c:redirect>
+
+실습
+WebContent
+    
+    url 폴더 
+
+    01_redirect.jsp
+    02_url.jsp
+    header.jsp
+    footer.jsp
+    05_import.jsp include 단점 보완
+  
+============================================================
+ 2. url 태그.........URL을 생성해서 변수에 저장할때 사용
+
+url 태그 형식
+
+<c:url var="a1" value="aa.jsp" scope="session">
+   <c:param name="id"  value="kim"/>
+</c:url>
+
+url태그 속성 
+
+var ------> 생성된 URL이 저장될 변수명
+value-----> 생성될 URL
+scope---->  변수에 저장될 범위 지정
+                 ( page(aa.jsp), request ,session,application(프로젝트이름) )
+                 request ,session
+
+
+# value속성에 올수 있는 값 ( 3 가지 )
+ 완전 URL ------------------------>http://ip:port/컨텍스트이름/중간이름/a.jsp
+ 웹 어플리케이션 내에서 절대 경로 ---> /bb.jsp ( 자신을 기준으로 한다 )
+ 현재 경로에대한 상대 경로 ---------->../member/aa.jsp
+
+    WebContent
+            member/aa.jsp
+            board/여기서 실행 할때
+
+# 실습 
+
+url.jsp
+
+============================================================
+3. import 태그 ....<jsp:include>태그와 비슷한 기능을 제공 
+
+import 태그 형식
+<c:import url="http://www.daum.net" --->읽어올 url
+             charEncoding="euc-kr"-------->읽어올 데이터 캐릭터 셋
+             var="daum" ----------------->변수이름
+             scope="session" ------------>적용범위
+   <c:param name="" value=""/>  ------>파라미터 값
+</c:import>
+
+#실습
+header.jsp
+footer.jsp
+앞에서 만든 ...>url.jsp 함께 활용합니다 
+import.jsp

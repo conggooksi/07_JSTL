@@ -1,0 +1,3 @@
+src/resource 패키지
+     testBundle.properties
+     testBundle_ko.properties

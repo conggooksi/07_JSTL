@@ -1,0 +1,23 @@
+WEB-INF/lib/jstl.jar
+WEB-INF/lib/standard.jar  <-- 두개 복사
+
+<jsp:useBean id="" class=''?>
+
+디렉티브 3가지
+<%@ page %>
+<%@ include file="aa.txt"%>
+<%@ tablib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<c:set var="varName" scope=”request” >
+someValue
+</c:set>
+
+<c:remove var="varName"  scope="application”/>
+<c:remove var=" varName"  scope="request/>
+
+
+실습
+WebContent
+  01_jstl 폴더
+    01_set_remove.jsp
